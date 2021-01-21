@@ -1,0 +1,63 @@
+package com.epam.tcfp.medHelp.service;
+
+public class ServiceName {
+
+    static final String REGISTER_USER_SERVICE = "/register";
+    static final String SHOW_ALL_PHARMACY_SERVICE = "/pharmacyAll";
+    static final String SHOW_PHARMACY_BY_CITY_SERVICE = "/pharmacyByCity";
+    static final String PHARMACY_SERVICE = "/pharmacy";
+    static final String MEDICINE_SERVICE = "/medicine";
+    static final String SHOW_PHARMACY_OF_MEDICINE_BY_CITY_SERVICE = "/pharmacyOfMedicineByCity";
+    static final String SHOW_ALL_MEDICINE_SERVICE = "/medicineAll";
+    static final String SHOW_MEDICINE_BY_MEDICINE_FOR_ID_SERVICE = "/medicineByMedicineForId";
+    static final String SHOW_MEDICINE_BY_MEDICINE_FROM_ID_SERVICE = "/medicineByMedicineFromId";
+    static final String SHOW_MEDICINE_BY_MEDICINE_HOW_ID_SERVICE = "/medicineByMedicineHowId";
+    static final String LOGIN_USER_SERVICE = "/login";
+    static final String LOGOUT_USER_SERVICE = "/logout";
+    static final String LOGIN_DOCTOR_SERVICE = "/loginDoctor";
+    static final String LOGOUT_DOCTOR_SERVICE = "/logoutDoctor";
+    static final String COMMENT_AS_DOCTOR_PAGE_SERVICE = "/commentAsDoctorPage";
+    static final String LEAVE_COMMENT_AS_DOCTOR_SERVICE = "/commentMedicineAsDoctor";
+    static final String COMMENT_AS_USER_PAGE_SERVICE = "/commentAsUserPage";
+    static final String LEAVE_COMMENT_AS_USER_SERVICE = "/commentMedicineAsUser";
+    static final String SHOW_ALL_USERS_SERVICE = "/users";
+    static final String EDIT_USER_SERVICE = "/editUser";
+    static final String CHANGE_USER_SERVICE = "/changeUser";
+    static final String DELETE_USER_SERVICE = "/deleteUser";
+    static final String GO_ADD_USER_SERVICE = "/goAddUser";
+    static final String ADD_USER_SERVICE = "/addUser";
+    static final String SHOW_ALL_DOCTOR_SERVICE = "/doctors";
+    static final String EDIT_DOCTOR_SERVICE = "/editDoctor";
+    static final String CHANGE_DOCTOR_SERVICE = "/changeDoctor";
+    static final String DELETE_DOCTOR_SERVICE = "/deleteDoctor";
+    static final String APPROVE_DOCTOR_SERVICE = "/approveDoctor";
+    static final String DISAPPROVE_DOCTOR_SERVICE = "/disapproveDoctor";
+    static final String GO_ADD_DOCTOR_SERVICE = "/goAddDoctor";
+    static final String ADD_DOCTOR_SERVICE = "/addDoctor";
+    static final String LOGOUT_ADMIN_SERVICE = "/logoutAdmin";
+    static final String SHOW_ALL_MED_CENTERS_SERVICE = "/medCenters";
+    static final String SHOW_ALL_PHARMACY_FOR_ADMIN_SERVICE = "/pharmacies";
+    static final String SHOW_ALL_MEDICINE_FOR_ADMIN_SERVICE = "/medicines";
+    static final String SHOW_ALL_MEDICINE_BY_PHARMACY_SERVICE = "/medicineByPharmacies";
+    static final String EDIT_MED_CENTER_SERVICE = "/editMedCenter";
+    static final String CHANGE_MED_CENTER_SERVICE = "/changeMedCenter";
+    static final String DELETE_MED_CENTER_SERVICE = "/deleteMedCenter";
+    static final String APPROVE_MED_CENTER_SERVICE = "/approveMedCenter";
+    static final String DISAPPROVE_MED_CENTER_SERVICE = "/disapproveMedCenter";
+    static final String GO_ADD_MED_CENTER_SERVICE = "/goAddMedCenter";
+    static final String ADD_MED_CENTER_SERVICE = "/addMedCenter";
+    static final String EDIT_PHARMACY_SERVICE = "/editPharmacy";
+    static final String CHANGE_PHARMACY_SERVICE = "/changePharmacy";
+    static final String DELETE_PHARMACY_SERVICE = "/deletePharmacy";
+    static final String APPROVE_PHARMACY_SERVICE = "/approvePharmacy";
+    static final String DISAPPROVE_PHARMACY_SERVICE = "/disapprovePharmacy";
+    static final String GO_ADD_PHARMACY_SERVICE = "/goAddPharmacy";
+    static final String ADD_PHARMACY_SERVICE = "/addPharmacy";
+    static final String EDIT_MEDICINE_BY_PHARMACY_SERVICE = "/editMedicineByPharmacy";
+    static final String CHANGE_MEDICINE_BY_PHARMACY_SERVICE = "/changeMedicineByPharmacy";
+    static final String DELETE_MEDICINE_BY_PHARMACY_SERVICE = "/deleteMedicineByPharmacy";
+    static final String GO_ADD_MEDICINE_BY_PHARMACY_SERVICE = "/goAddMedicineByPharmacy";
+    static final String ADD_MEDICINE_BY_PHARMACY_SERVICE = "/addMedicineByPharmacy";
+    static final String CHANGE_LANGUAGE_SERVICE = "/changeLanguage";
+
+}
