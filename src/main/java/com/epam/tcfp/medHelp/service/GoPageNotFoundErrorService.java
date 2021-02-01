@@ -14,7 +14,6 @@ import static com.epam.tcfp.medHelp.util.constants.PageName.PAGE_NOT_FOUND_ERROR
 public class GoPageNotFoundErrorService implements Service {
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException {
-        //response.sendRedirect(PAGE_NOT_FOUND_ERROR_PAGE);
         RequestDispatcher requestDispatcher;
         requestDispatcher = request.getRequestDispatcher(PAGE_NOT_FOUND_ERROR_PAGE);
         requestDispatcher.forward(request,response);
