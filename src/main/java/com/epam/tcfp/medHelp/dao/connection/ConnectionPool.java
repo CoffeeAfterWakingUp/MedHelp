@@ -21,7 +21,6 @@ public final class ConnectionPool {
 
     private final static Logger LOGGER = LogManager.getLogger();
     private BlockingQueue<Connection> availableConnections;
-    private BlockingQueue<Connection> usedConnections;
     private static volatile ConnectionPool instance;
 
 
@@ -48,7 +47,6 @@ public final class ConnectionPool {
         try{
             Class.forName(driverName);
             availableConnections = new ArrayBlockingQueue<>(poolSize);
-            usedConnections = new ArrayBlockingQueue<>(poolSize);
             for(int i = 0; i < poolSize; i++){
                 connection = DriverManager.getConnection(url,user,password);
                 availableConnections.put(connection);
@@ -71,7 +69,6 @@ public final class ConnectionPool {
         else {
             try {
                 connection = availableConnections.take();
-                usedConnections.add(connection);
             } catch (InterruptedException e) {
                 LOGGER.error("Error connecting to the data source", e);
             }
@@ -82,7 +79,6 @@ public final class ConnectionPool {
     public synchronized void releaseConnection(Connection connection){
         if(connection != null){
             try{
-                usedConnections.remove(connection);
                 availableConnections.put(connection);
             } catch (InterruptedException e) {
                 LOGGER.error(e);
@@ -103,11 +99,5 @@ public final class ConnectionPool {
         }
         return result;
     }
-
-    public int getAvailableConnectionCount(){
-        return availableConnections.size();
-    }
-
-
 
 }
