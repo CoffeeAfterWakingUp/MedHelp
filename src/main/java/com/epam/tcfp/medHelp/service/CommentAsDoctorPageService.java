@@ -25,7 +25,7 @@ public class CommentAsDoctorPageService implements Service {
         RequestDispatcher requestDispatcher;
         CommentAsDoctorForm form = CommentAsDoctorForm.getInstance();
         form.setFormParameters(request);
-
+        // TODO clear from comments
 //        if(form.getButton() != null){
             request.setAttribute(MEDICINE_ID,form.getMedicineId());
             request.setAttribute(MEDICINE_NAME,medicineDAO.getMedicineById(form.getMedicineId()).getName());

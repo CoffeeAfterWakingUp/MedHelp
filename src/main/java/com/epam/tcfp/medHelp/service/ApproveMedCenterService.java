@@ -32,8 +32,7 @@ public class ApproveMedCenterService implements Service {
                 medCenterDAO.approve(form.getId());
                 response.sendRedirect(SHOW_ALL_MED_CENTERS_SERVICE);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

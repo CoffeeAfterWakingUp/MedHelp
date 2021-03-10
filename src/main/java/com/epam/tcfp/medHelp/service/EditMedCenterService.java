@@ -46,8 +46,7 @@ public class EditMedCenterService implements Service {
                 requestDispatcher = request.getRequestDispatcher(EDIT_MED_CENTER_PAGE);
                 requestDispatcher.forward(request, response);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

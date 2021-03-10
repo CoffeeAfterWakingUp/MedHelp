@@ -64,8 +64,7 @@ public class LeaveCommentAsDoctorService implements Service {
                 request.setAttribute(SUCCESSFUL_POST_COMMENT, SUCCESSFUL_POST_COMMENT_MSG);
                 serviceFactory.getService(COMMENT_AS_DOCTOR_PAGE_SERVICE).perform(request,response);
             }
-        }
-        else {
+        } else {
             request.setAttribute(LOGIN_FOR_COMMENT_ERROR,LOGIN_FOR_COMMENT_ERROR_MSG);
             serviceFactory.getService(COMMENT_AS_DOCTOR_PAGE_SERVICE).perform(request,response);
         }

@@ -32,8 +32,7 @@ public class ApprovePharmacyService implements Service {
                 pharmacyDAO.approve(form.getId());
                 response.sendRedirect(SHOW_ALL_PHARMACY_FOR_ADMIN_SERVICE);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

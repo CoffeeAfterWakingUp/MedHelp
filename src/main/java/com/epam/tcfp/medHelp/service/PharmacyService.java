@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 
+import static com.epam.tcfp.medHelp.util.constants.PageName.INTERNAL_SERVER_ERROR_PAGE;
 import static com.epam.tcfp.medHelp.util.constants.PageName.PHARMACY_PAGE;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.MEDICINE_OF_PHARMACY;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.PHARMACY;
@@ -28,7 +29,6 @@ import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.PHARMACY
 public class PharmacyService implements Service {
     private DAOFactory daoFactory = DAOFactory.getInstance();
     private PharmacyDAO pharmacyDAO = (PharmacyDAOImpl) daoFactory.getDAO("PHARMACY_DAO");
-    private MedicineDAO medicineDAO = (MedicineDAOImpl) daoFactory.getDAO("MEDICINE_DAO");
     private MedicineByPharmacyDAO medicineByPharmacyDAO = (MedicineByPharmacyDAOImpl) daoFactory.getDAO("MEDICINE_BY_PHARMACY_DAO");
 
     @Override
@@ -46,8 +46,9 @@ public class PharmacyService implements Service {
             request.setAttribute(MEDICINE_OF_PHARMACY,medicineByPharmacies);
             requestDispatcher = request.getRequestDispatcher(PHARMACY_PAGE);
             requestDispatcher.forward(request,response);
-        }else{
-            System.out.println("error" + getClass().getName());
+       } else{
+            requestDispatcher = request.getRequestDispatcher(INTERNAL_SERVER_ERROR_PAGE);
+            requestDispatcher.forward(request,response);
         }
-    }
+}
 }

@@ -26,7 +26,7 @@ public class ShowAllMedicineService implements Service {
     private MedicineForDAO medicineForDAO = (MedicineForDAOImpl) daoFactory.getDAO("MEDICINE_FOR_DAO");
     private MedicineFromDAO medicineFromDAO = (MedicineFromDAOImpl) daoFactory.getDAO("MEDICINE_FROM_DAO");
     private MedicineHowDAO medicineHowDAO = (MedicineHowDAOImpl) daoFactory.getDAO("MEDICINE_HOW_DAO");
-    private DoctorCommentMedicineDAO doctorCommentMedicineDAO = (DoctorCommentMedicineDAOImpl) daoFactory.getDAO("DOCTOR_MEDICINE_COMMENT_DAO");
+
 
 
 

@@ -28,6 +28,7 @@ import java.util.List;
 
 import static com.epam.tcfp.medHelp.service.ServiceName.SHOW_ALL_MEDICINE_SERVICE;
 import static com.epam.tcfp.medHelp.util.constants.PageName.ALL_MEDICINE_PAGE;
+import static com.epam.tcfp.medHelp.util.constants.PageName.INTERNAL_SERVER_ERROR_PAGE;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.*;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.ALL_MEDICINE_FROM_GROUP;
 
@@ -41,6 +42,7 @@ public class ShowMedicineByMedicineForIdService implements Service {
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException {
         List<Medicine> medicines;
+        RequestDispatcher requestDispatcher;
         ShowMedicineByMedicineForIdForm showMedicineByMedicineForIdForm = ShowMedicineByMedicineForIdForm.getInstance();
         showMedicineByMedicineForIdForm.setFormParameters(request);
         if(showMedicineByMedicineForIdForm.getButton() != null){
@@ -48,9 +50,9 @@ public class ShowMedicineByMedicineForIdService implements Service {
             request.setAttribute(MEDICINE_GROUP_NAME,medicineForDAO.getMedicineForById(showMedicineByMedicineForIdForm.getId()).getName());
             request.setAttribute(MEDICINES_OF_FOR_GROUP,medicines);
             serviceFactory.getService(SHOW_ALL_MEDICINE_SERVICE).perform(request,response);
-        }
-        else{
-            System.out.println("error " + getClass().getName());
+        } else{
+            requestDispatcher = request.getRequestDispatcher(INTERNAL_SERVER_ERROR_PAGE);
+            requestDispatcher.forward(request,response);
         }
     }
 }

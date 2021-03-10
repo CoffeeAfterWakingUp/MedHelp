@@ -26,30 +26,13 @@ public class ShowPharmacyOfMedicineByCityService implements Service{
     private ServiceFactory serviceFactory = ServiceFactory.getInstance();
 
 
-
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException {
         List<MedicineByPharmacy> medicineByPharmacies;
         ShowPharmacyOfMedicineByCityForm showPharmacyOfMedicineByCityForm = ShowPharmacyOfMedicineByCityForm.getInstance();
         showPharmacyOfMedicineByCityForm.setFormParameters(request);
-
-//        if(showPharmacyOfMedicineByCityForm.getButton() != null){
         medicineByPharmacies = medicineByPharmacyDAO.getPharmacyOfMedicineByCityId(showPharmacyOfMedicineByCityForm.getCityId(), showPharmacyOfMedicineByCityForm.getMedicineId());
-//            cities = cityDAO.getAll();
-//            medicine = medicineDAO.getMedicineById(showPharmacyOfMedicineByCityForm.getMedicineId());
-
-
         request.setAttribute(PHARMACY_OF_MEDICINE_BY_CITY, medicineByPharmacies);
-//            request.setAttribute(MEDICINE,medicine);
-//            request.setAttribute(ALL_CITY,cities);
-
-//            requestDispatcher = request.getRequestDispatcher(MEDICINE_PAGE);
-//            requestDispatcher.forward(request,response);
         serviceFactory.getService(MEDICINE_SERVICE).perform(request, response);
-//        }
-//        else{
-//            System.out.println("error " + getClass().getName());
-//        }
-
     }
 }

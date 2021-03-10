@@ -36,8 +36,7 @@ public class ShowAllUsersService implements Service {
             request.setAttribute(ALL_USERS, users);
             requestDispatcher = request.getRequestDispatcher(ADMIN_PANEL_PAGE);
             requestDispatcher.forward(request, response);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

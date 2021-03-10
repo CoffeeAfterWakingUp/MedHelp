@@ -35,8 +35,7 @@ public class ShowAllMedicineForAdminService implements Service {
             request.setAttribute(ALL_MEDICINE,medicines);
             requestDispatcher = request.getRequestDispatcher(MEDICINES_PAGE);
             requestDispatcher.forward(request,response);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

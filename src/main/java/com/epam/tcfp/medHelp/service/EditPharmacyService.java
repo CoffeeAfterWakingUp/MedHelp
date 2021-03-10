@@ -45,8 +45,7 @@ public class EditPharmacyService implements Service {
                 requestDispatcher = request.getRequestDispatcher(EDIT_PHARMACY_PAGE);
                 requestDispatcher.forward(request, response);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

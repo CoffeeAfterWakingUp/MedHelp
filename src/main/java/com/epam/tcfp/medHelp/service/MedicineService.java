@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 
+import static com.epam.tcfp.medHelp.util.constants.PageName.INTERNAL_SERVER_ERROR_PAGE;
 import static com.epam.tcfp.medHelp.util.constants.PageName.MEDICINE_PAGE;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.*;
 
@@ -40,7 +41,7 @@ public class MedicineService implements Service {
         Integer avgPriceAndQualityRating;
         RequestDispatcher requestDispatcher;
         medicineForm.setFormParameters(request);
-//        if(medicineForm.getButton() != null){
+
         medicine = medicineDAO.getMedicineById(medicineForm.getId());
         medicineByPharmacies = medicineByPharmacyDAO.getPharmacyByMedicineId(medicineForm.getId());
         cities = cityDAO.getAll();
@@ -49,7 +50,6 @@ public class MedicineService implements Service {
         avgEfficiencyRating = doctorCommentMedicineDAO.getAverageEfficiencyRating(medicineForm.getId());
         avgSideEffectsRating = doctorCommentMedicineDAO.getAverageSideEffectsRating(medicineForm.getId());
         avgPriceAndQualityRating = doctorCommentMedicineDAO.getAveragePriceAndQualityRating(medicineForm.getId());
-
 
         request.setAttribute(AVG_EFFICIENCY_RATING, avgEfficiencyRating);
         request.setAttribute(AVG_SIDE_EFFECTS_RATING, avgSideEffectsRating);
@@ -61,10 +61,6 @@ public class MedicineService implements Service {
         request.setAttribute(ALL_CITY, cities);
         requestDispatcher = request.getRequestDispatcher(MEDICINE_PAGE);
         requestDispatcher.forward(request, response);
-//        }else{
-//            System.out.println("error" + getClass().getName());
-//        }
     }
-
-
 }
+

@@ -22,8 +22,7 @@ public class GoAddUserService implements Service {
         User admin = (User)session.getAttribute(CURRENT_ADMIN_SESSION);
         if(admin != null) {
             response.sendRedirect(ADD_USER_PAGE);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

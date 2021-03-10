@@ -47,8 +47,7 @@ public class ChangePharmacyService implements Service {
                 pharmacyDAO.update(pharmacy);
                 response.sendRedirect(SHOW_ALL_PHARMACY_FOR_ADMIN_SERVICE);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

@@ -19,6 +19,7 @@ public class ChangeLanguageService implements Service {
         HttpSession session = request.getSession();
         session.setAttribute(CURRENT_LANGUAGE_SESSION,request.getParameter(LANGUAGE));
 
+        // TODO add return to
         response.sendRedirect(MAIN_PAGE);
     }
 }

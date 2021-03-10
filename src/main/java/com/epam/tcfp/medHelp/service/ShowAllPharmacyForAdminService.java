@@ -34,8 +34,7 @@ public class ShowAllPharmacyForAdminService implements Service {
             request.setAttribute(ALL_PHARMACY,pharmacies);
             requestDispatcher = request.getRequestDispatcher(PHARMACIES_PAGE);
             requestDispatcher.forward(request,response);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

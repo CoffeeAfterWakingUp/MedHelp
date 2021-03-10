@@ -43,8 +43,7 @@ public class GoAddMedicineByPharmacyService implements Service {
             request.setAttribute(ALL_PHARMACY,pharmacies);
             requestDispatcher = request.getRequestDispatcher(ADD_MEDICINE_BY_PHARMACY_PAGE);
             requestDispatcher.forward(request,response);
-        }
-        else {
+        } else {
             response.sendRedirect(MAIN_PAGE);
         }
     }

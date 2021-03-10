@@ -27,6 +27,7 @@ import java.util.List;
 
 import static com.epam.tcfp.medHelp.service.ServiceName.SHOW_ALL_MEDICINE_SERVICE;
 import static com.epam.tcfp.medHelp.util.constants.PageName.ALL_MEDICINE_PAGE;
+import static com.epam.tcfp.medHelp.util.constants.PageName.INTERNAL_SERVER_ERROR_PAGE;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.*;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.ALL_MEDICINE_FROM_GROUP;
 
@@ -35,22 +36,22 @@ public class ShowMedicineByMedicineFromIdService implements Service {
     private MedicineDAO medicineDAO = (MedicineDAOImpl) daoFactory.getDAO("MEDICINE_DAO");
     private MedicineFromDAO medicineFromDAO = (MedicineFromDAOImpl) daoFactory.getDAO("MEDICINE_FROM_DAO");
     private ServiceFactory serviceFactory = ServiceFactory.getInstance();
+
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException {
-
         List<Medicine> medicines;
+        RequestDispatcher requestDispatcher;
         ShowMedicineByMedicineFromIdForm showMedicineByMedicineFromIdForm = ShowMedicineByMedicineFromIdForm.getInstance();
         showMedicineByMedicineFromIdForm.setFormParameters(request);
-
 
         if(showMedicineByMedicineFromIdForm.getButton() != null){
             medicines = medicineDAO.getMedicineByMedicineFromId(showMedicineByMedicineFromIdForm.getId());
             request.setAttribute(MEDICINE_GROUP_NAME,medicineFromDAO.getMedicineFromById(showMedicineByMedicineFromIdForm.getId()).getName());
             request.setAttribute(MEDICINES_OF_FROM_GROUP,medicines);
             serviceFactory.getService(SHOW_ALL_MEDICINE_SERVICE).perform(request,response);
-        }
-        else{
-            System.out.println("error " + getClass().getName());
+        } else{
+            requestDispatcher = request.getRequestDispatcher(INTERNAL_SERVER_ERROR_PAGE);
+            requestDispatcher.forward(request,response);
         }
     }
 }

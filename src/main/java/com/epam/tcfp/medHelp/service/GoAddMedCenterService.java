@@ -35,8 +35,7 @@ public class GoAddMedCenterService implements Service {
             request.setAttribute(ALL_CITY,cities);
             requestDispatcher = request.getRequestDispatcher(ADD_MED_CENTER_PAGE);
             requestDispatcher.forward(request, response);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

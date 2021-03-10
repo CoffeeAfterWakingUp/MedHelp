@@ -50,8 +50,7 @@ public class AddMedicineByPharmacyService implements Service {
                 medicineByPharmacyDAO.create(medicineByPharmacy);
                 response.sendRedirect(SHOW_ALL_MEDICINE_BY_PHARMACY_SERVICE);
             }
-        }
-        else {
+        } else {
             response.sendRedirect(MAIN_PAGE);
         }
     }

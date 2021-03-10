@@ -32,8 +32,7 @@ public class DisapprovePharmacyService implements Service {
                 pharmacyDAO.disapprove(form.getId());
                 response.sendRedirect(SHOW_ALL_PHARMACY_FOR_ADMIN_SERVICE);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

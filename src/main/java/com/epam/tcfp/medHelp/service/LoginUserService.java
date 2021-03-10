@@ -3,7 +3,6 @@ package com.epam.tcfp.medHelp.service;
 import com.epam.tcfp.medHelp.dao.factory.DAOFactory;
 import com.epam.tcfp.medHelp.dao.impl.UserDAOImpl;
 import com.epam.tcfp.medHelp.dao.interfaces.UserDAO;
-import com.epam.tcfp.medHelp.entity.User;
 import com.epam.tcfp.medHelp.service.form.LoginUserForm;
 
 import javax.servlet.RequestDispatcher;
@@ -23,7 +22,6 @@ import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.*;
 public class LoginUserService implements Service {
     private DAOFactory daoFactory = DAOFactory.getInstance();
     private UserDAO userDAO = (UserDAOImpl) daoFactory.getDAO("USER_DAO");
-    private ServiceFactory serviceFactory = ServiceFactory.getInstance();
 
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException {
@@ -49,7 +47,8 @@ public class LoginUserService implements Service {
                 }
             }
         } else {
-            System.out.println("error " + getClass().getName());
+            requestDispatcher = request.getRequestDispatcher(INTERNAL_SERVER_ERROR_PAGE);
+            requestDispatcher.forward(request,response);
         }
 
     }

@@ -39,8 +39,7 @@ public class EditUserService implements Service {
                 requestDispatcher = request.getRequestDispatcher(EDIT_USER_PAGE);
                 requestDispatcher.forward(request, response);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

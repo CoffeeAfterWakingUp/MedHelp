@@ -34,8 +34,7 @@ public class GoAddPharmacyService implements Service {
             request.setAttribute(ALL_CITY,cities);
             requestDispatcher = request.getRequestDispatcher(ADD_PHARMACY_PAGE);
             requestDispatcher.forward(request, response);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

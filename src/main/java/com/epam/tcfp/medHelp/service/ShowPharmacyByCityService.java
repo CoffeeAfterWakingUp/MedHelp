@@ -20,6 +20,7 @@ import java.util.List;
 
 import static com.epam.tcfp.medHelp.service.ServiceName.SHOW_ALL_PHARMACY_SERVICE;
 import static com.epam.tcfp.medHelp.util.constants.PageName.ALL_PHARMACY_PAGE;
+import static com.epam.tcfp.medHelp.util.constants.PageName.INTERNAL_SERVER_ERROR_PAGE;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.*;
 
 public class ShowPharmacyByCityService implements Service {
@@ -32,6 +33,7 @@ public class ShowPharmacyByCityService implements Service {
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException {
         List<Pharmacy> pharmacies;
         City city;
+        RequestDispatcher requestDispatcher;
         ShowPharmacyByCityForm showPharmacyByCityForm = ShowPharmacyByCityForm.getInstance();
         showPharmacyByCityForm.setFormParameters(request);
         if(showPharmacyByCityForm.getButton() != null){
@@ -41,7 +43,8 @@ public class ShowPharmacyByCityService implements Service {
             request.setAttribute(CITY_OF_PHARMACY,city);
             serviceFactory.getService(SHOW_ALL_PHARMACY_SERVICE).perform(request,response);
         }else{
-            System.out.println("404");
+            requestDispatcher = request.getRequestDispatcher(INTERNAL_SERVER_ERROR_PAGE);
+            requestDispatcher.forward(request,response);
         }
     }
 }

@@ -35,8 +35,7 @@ public class ShowAllDoctorService implements Service {
             request.setAttribute(ALL_DOCTORS, doctors);
             requestDispatcher = request.getRequestDispatcher(DOCTORS_PAGE);
             requestDispatcher.forward(request, response);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

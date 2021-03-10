@@ -32,8 +32,7 @@ public class DisapproveMedCenterService implements Service {
                 medCenterDAO.disapprove(form.getId());
                 response.sendRedirect(SHOW_ALL_MED_CENTERS_SERVICE);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

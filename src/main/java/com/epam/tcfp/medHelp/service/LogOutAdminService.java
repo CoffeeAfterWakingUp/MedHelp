@@ -16,9 +16,7 @@ public class LogOutAdminService implements Service {
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException {
         HttpSession session = request.getSession();
-
         session.setAttribute(CURRENT_ADMIN_SESSION,null);
-
         response.sendRedirect(MAIN_PAGE);
     }
 }

@@ -52,8 +52,7 @@ public class EditMedicineByPharmacyService implements Service {
                 requestDispatcher = request.getRequestDispatcher(EDIT_MEDICINE_BY_PHARMACY_PAGE);
                 requestDispatcher.forward(request,response);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

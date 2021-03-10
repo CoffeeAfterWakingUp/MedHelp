@@ -52,8 +52,7 @@ public class AddUserService implements Service {
                     response.sendRedirect(SHOW_ALL_USERS_SERVICE);
                 }
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

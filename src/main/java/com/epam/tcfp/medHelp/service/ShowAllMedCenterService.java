@@ -35,8 +35,7 @@ public class ShowAllMedCenterService implements Service{
             request.setAttribute(ALL_MED_CENTER,medCenters);
             requestDispatcher = request.getRequestDispatcher(MED_CENTERS_PAGE);
             requestDispatcher.forward(request, response);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
 

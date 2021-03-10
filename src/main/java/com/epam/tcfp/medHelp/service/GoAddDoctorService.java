@@ -46,8 +46,7 @@ public class GoAddDoctorService implements Service {
             request.setAttribute(ALL_MED_CENTERS_SESSION, medCenters);
             requestDispatcher = request.getRequestDispatcher(ADD_DOCTOR_PAGE);
             requestDispatcher.forward(request, response);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
 

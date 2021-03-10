@@ -35,8 +35,7 @@ public class ShowAllMedicineByPharmacyService implements Service{
             request.setAttribute(ALL_MEDICINE_OF_PHARMACY,medicineByPharmacies);
             requestDispatcher = request.getRequestDispatcher(MEDICINE_BY_PHARMACY_PAGE);
             requestDispatcher.forward(request,response);
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

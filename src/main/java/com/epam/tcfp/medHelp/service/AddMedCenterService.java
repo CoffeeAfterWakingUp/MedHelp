@@ -48,8 +48,7 @@ public class AddMedCenterService implements Service {
                 medCenterDAO.create(medCenter);
                 response.sendRedirect(SHOW_ALL_MED_CENTERS_SERVICE);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

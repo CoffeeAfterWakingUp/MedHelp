@@ -17,8 +17,7 @@ import java.text.ParseException;
 
 import static com.epam.tcfp.medHelp.util.constants.ErrorName.DOCTOR_AUTH_NOT_VALID_ERROR;
 import static com.epam.tcfp.medHelp.util.constants.ErrorName.DOCTOR_AUTH_NOT_VALID_ERROR_MSG;
-import static com.epam.tcfp.medHelp.util.constants.PageName.LOGIN_PAGE;
-import static com.epam.tcfp.medHelp.util.constants.PageName.MAIN_PAGE;
+import static com.epam.tcfp.medHelp.util.constants.PageName.*;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.CURRENT_DOCTOR_SESSION;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.DOCTOR_EMAIL;
 
@@ -45,9 +44,9 @@ public class LoginDoctorService implements Service{
                 session.setAttribute(CURRENT_DOCTOR_SESSION,doctorDAO.getByEmail(form.getEmail()));
                 response.sendRedirect(MAIN_PAGE);
             }
-        }
-        else{
-            System.out.println("error " + getClass().getName() );
+        } else{
+            requestDispatcher = request.getRequestDispatcher(INTERNAL_SERVER_ERROR_PAGE);
+            requestDispatcher.forward(request,response);
         }
     }
 }

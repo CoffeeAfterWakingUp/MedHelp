@@ -54,8 +54,7 @@ public class EditDoctorService implements Service {
                 requestDispatcher = request.getRequestDispatcher(EDIT_DOCTOR_PAGE);
                 requestDispatcher.forward(request, response);
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }

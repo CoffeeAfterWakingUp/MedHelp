@@ -18,9 +18,7 @@ public class LogOutUserService implements Service {
     @Override
     public void perform(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException, SQLException {
         HttpSession session = request.getSession();
-
         session.setAttribute(CURRENT_USER_SESSION,null);
-
         response.sendRedirect(MAIN_PAGE);
     }
 }

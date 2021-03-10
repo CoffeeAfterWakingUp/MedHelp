@@ -68,8 +68,7 @@ public class AddDoctorService implements Service {
                     response.sendRedirect(SHOW_ALL_DOCTOR_SERVICE);
                 }
             }
-        }
-        else{
+        } else{
             response.sendRedirect(MAIN_PAGE);
         }
     }
