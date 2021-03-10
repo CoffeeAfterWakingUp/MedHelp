@@ -67,6 +67,8 @@ public class FormParameterName {
     public static final String DELETE_USER_BUTTON = "deleteUser";
     public static final String ADD_USER_BUTTON = "addUser";
 
+    public static final String RETURN_TO = "returnTo";
+
 
     // IdForm Parameters
     public static final String FORM_ID = "id";
