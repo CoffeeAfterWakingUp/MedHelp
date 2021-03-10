@@ -30,6 +30,7 @@ public class PageName {
     public static final String EDIT_MEDICINE_BY_PHARMACY_PAGE = "/editMedicineByPharmacy.jsp";
     public static final String ADD_MEDICINE_BY_PHARMACY_PAGE = "/addMedicineByPharmacy.jsp";
     public static final String PAGE_NOT_FOUND_ERROR_PAGE = "/pageNotFoundError.jsp";
+    public static final String INTERNAL_SERVER_ERROR_PAGE = "/500ErrorPage.jsp";
 
 
 
