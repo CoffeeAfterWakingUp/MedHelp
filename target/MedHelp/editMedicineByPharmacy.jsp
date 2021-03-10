@@ -24,7 +24,7 @@
                         <label>Medicine</label>
                         <select class="form-control" name="medicineId">
                             <c:forEach var = "medicine" items="${requestScope.allMedicine}">
-                                <option value="${medicine.id}">${medicine.name}</option>
+                                <option value="${medicine.id}" <c:if test="${medicine.name == requestScope.medicineByPharmacy.medicine.name }"><c:out value = "selected"/></c:if>>${medicine.name}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -33,22 +33,22 @@
                         <label>Pharmacy</label>
                         <select class="form-control" name="pharmacy_id">
                             <c:forEach var = "pharmacy" items="${requestScope.allPharmacy}">
-                                <option value="${pharmacy.id}">${pharmacy.name}</option>
+                                <option value="${pharmacy.id}" <c:if test="${pharmacy.name == requestScope.medicineByPharmacy.pharmacy.name }"><c:out value = "selected"/></c:if>>${pharmacy.name}</option>
                             </c:forEach>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Price</label>
-                        <input type="text" class="form-control" value="${requestScope.medicineByPharmacy.price}" name="price">
+                        <input type="text" class="form-control" value="${requestScope.medicineByPharmacy.price}" name="price" required>
                     </div>
 
 
                     <div class="form-group">
                         <label>Exist</label>
                         <select class="form-control" name="exist">
-                            <option value="true">true</option>
-                            <option value="false">false</option>
+                            <option value="true" <c:if test="${\"true\" == requestScope.medicineByPharmacy.exist }"><c:out value = "selected"/></c:if>>true</option>
+                            <option value="false" <c:if test="${\"false\" == requestScope.medicineByPharmacy.exist }"><c:out value = "selected"/></c:if>>false</option>
                         </select>
                     </div>
 

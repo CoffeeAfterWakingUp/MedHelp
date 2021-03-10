@@ -42,15 +42,15 @@
                         <div class="form-group">
                             <label>Role</label>
                             <select class="form-control" name="role">
-                                <option value="user">user</option>
-                                <option value="admin">admin</option>
+                                <option value="user" <c:if test="${\"user\" == requestScope.user.role }"><c:out value = "selected"/></c:if>>user</option>
+                                <option value="admin" <c:if test="${\"admin\" == requestScope.user.role }"><c:out value = "selected"/></c:if>>admin</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Exist</label>
                             <select class="form-control" name="exist">
-                                <option value="true">true</option>
-                                <option value="false">false</option>
+                                <option value="true" <c:if test="${\"true\" == requestScope.user.exist }"><c:out value = "selected"/></c:if>>true</option>
+                                <option value="false" <c:if test="${\"false\" == requestScope.user.exist }"><c:out value = "selected"/></c:if>>false</option>
                             </select>
                         </div>
                         <br>
