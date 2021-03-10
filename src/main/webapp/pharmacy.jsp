@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h6>График работы</h6>
+                <h6><fmt:message key = "pharmacy.schedule"/></h6>
                 <div class="alert alert-dark" role="alert">
                     <fmt:message key = "alert.pharmacy.work.schedule"/>
                 </div>
