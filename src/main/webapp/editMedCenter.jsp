@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
+ <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <html>
@@ -21,26 +21,26 @@
                     <input type="hidden" value="${requestScope.medCenter.id}" name="id">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" value="${requestScope.medCenter.name}" name="name">
+                        <input type="text" class="form-control" value="${requestScope.medCenter.name}" name="name" required>
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" value="${requestScope.medCenter.address}" name="address">
+                        <input type="text" class="form-control" value="${requestScope.medCenter.address}" name="address" required>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" value="${requestScope.medCenter.phone}" name="phone">
+                        <input type="text" class="form-control" value="${requestScope.medCenter.phone}" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label>MedInstitution</label>
-                        <input type="text" class="form-control" value="${requestScope.medCenter.medInstitution}" name="medInstitution">
+                        <input type="text" class="form-control" value="${requestScope.medCenter.medInstitution}" name="medInstitution" required>
                     </div>
 
                     <div class="form-group">
                         <label>City</label>
                         <select class="form-control" name="city_id">
                             <c:forEach var = "city" items="${requestScope.allCity}">
-                                <option value="${city.id}">${city.name}</option>
+                                <option value="${city.id}" <c:if test="${city.name == requestScope.medCenter.city.name }"><c:out value = "selected"/></c:if>>${city.name}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -48,16 +48,16 @@
                     <div class="form-group">
                         <label>Approved</label>
                         <select class="form-control" name="approved">
-                            <option value="true">true</option>
-                            <option value="false">false</option>
+                            <option value="true" <c:if test="${\"true\" == requestScope.medCenter.approved }"><c:out value = "selected"/></c:if>>true</option>
+                            <option value="false" <c:if test="${\"false\" == requestScope.medCenter.approved }"><c:out value = "selected"/></c:if>>false</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Exist</label>
                         <select class="form-control" name="exist">
-                            <option value="true">true</option>
-                            <option value="false">false</option>
+                            <option value="true" <c:if test="${\"true\" == requestScope.medCenter.exist }"><c:out value = "selected"/></c:if>>true</option>
+                            <option value="false" <c:if test="${\"false\" == requestScope.medCenter.exist }"><c:out value = "selected"/></c:if>>false</option>
                         </select>
                     </div>
 

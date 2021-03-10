@@ -21,7 +21,7 @@
                     <input type="hidden" value="${requestScope.doctor.id}" name="id">
                     <div class="form-group">
                         <label>Email address</label>
-                        <input type="email" class="form-control" value="${requestScope.doctor.email}" name="email">
+                        <input type="email" class="form-control" value="${requestScope.doctor.email}" name="email" required>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
@@ -29,22 +29,22 @@
                     </div>
                     <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" value="${requestScope.doctor.firstName}" name="firstName">
+                        <input type="text" class="form-control" value="${requestScope.doctor.firstName}" name="firstName" required>
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" value="${requestScope.doctor.lastName}" name="lastName">
+                        <input type="text" class="form-control" value="${requestScope.doctor.lastName}" name="lastName" required>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" value="${requestScope.doctor.phone}" name="phone">
+                        <input type="text" class="form-control" value="${requestScope.doctor.phone}" name="phone" required>
                     </div>
 
                     <div class="form-group">
                         <label>Working place</label>
                         <select class="form-control" name="medCenterId">
                             <c:forEach var = "medCenter" items="${requestScope.allMedCenter}">
-                                <option value="${medCenter.id}">${medCenter.name} - ${medCenter.medInstitution}</option>
+                                <option value="${medCenter.id}" <c:if test="${medCenter.name == requestScope.doctor.medCenter.name}"><c:out value = "selected"/></c:if>>${medCenter.name} - ${medCenter.medInstitution}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -53,29 +53,29 @@
                         <label>Profession</label>
                         <select class="form-control" name="professionId">
                             <c:forEach var = "profession" items="${requestScope.allProfession}">
-                                <option value="${profession.id}">${profession.name}</option>
+                                <option value="${profession.id}" <c:if test="${profession.name == requestScope.doctor.profession.name}"><c:out value = "selected"/></c:if>>${profession.name}</option>
                             </c:forEach>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Experience</label>
-                        <input type="number" class="form-control" min="1" max="60" name="experience" value="<c:out value = "${requestScope.doctor.experience}"/>">
+                        <input type="number" class="form-control" min="1" max="60" name="experience" value="<c:out value = "${requestScope.doctor.experience}"/>" required>
                     </div>
 
                     <div class="form-group">
                         <label>Approved</label>
                         <select class="form-control" name="approved">
-                            <option value="true">true</option>
-                            <option value="false">false</option>
+                            <option value="true" <c:if test="${\"true\" == requestScope.doctor.approved }"><c:out value = "selected"/></c:if>>true</option>
+                            <option value="false" <c:if test="${\"false\" == requestScope.doctor.approved }"><c:out value = "selected"/></c:if>>false</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>Exist</label>
                         <select class="form-control" name="exist">
-                            <option value="true">true</option>
-                            <option value="false">false</option>
+                            <option value="true" <c:if test="${\"true\" == requestScope.doctor.exist }"><c:out value = "selected"/></c:if>>true</option>
+                            <option value="false" <c:if test="${\"false\" == requestScope.doctor.exist }"><c:out value = "selected"/></c:if>>false</option>
                         </select>
                     </div>
 
