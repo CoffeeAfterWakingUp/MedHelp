@@ -47,7 +47,7 @@ public class EditDoctorService implements Service {
             if (form.getButton() != null) {
                 doctor = doctorDAO.getById(form.getId());
                 professions = professionDAO.getAll();
-                medCenters = medCenterDAO.getAll();
+                medCenters = medCenterDAO.getApprovedMedCenters();
                 request.setAttribute(DOCTOR, doctor);
                 request.setAttribute(ALL_PROFESSIONS_SESSION, professions);
                 request.setAttribute(ALL_MED_CENTERS_SESSION, medCenters);

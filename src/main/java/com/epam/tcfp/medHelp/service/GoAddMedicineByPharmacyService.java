@@ -27,7 +27,6 @@ import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.*;
 public class GoAddMedicineByPharmacyService implements Service {
     private DAOFactory daoFactory = DAOFactory.getInstance();
     private MedicineDAO medicineDAO = (MedicineDAOImpl) daoFactory.getDAO("MEDICINE_DAO");
-    private MedicineByPharmacyDAO medicineByPharmacyDAO = (MedicineByPharmacyDAOImpl) daoFactory.getDAO("MEDICINE_BY_PHARMACY_DAO");
     private PharmacyDAO pharmacyDAO = (PharmacyDAOImpl) daoFactory.getDAO("PHARMACY_DAO");
 
 

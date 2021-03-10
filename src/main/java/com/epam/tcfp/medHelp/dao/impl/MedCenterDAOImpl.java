@@ -24,7 +24,7 @@ public class MedCenterDAOImpl implements MedCenterDAO {
     private static final String DELETE_MED_CENTER = "DELETE FROM medcenter WHERE id = ?";
     private static final String APPROVE_OR_DISAPPROVE_MED_CENTER = "UPDATE medcenter SET approved = ? WHERE id = ?";
     private static final String CREATE_MED_CENTER = "INSERT INTO medcenter(name, city_id, phone, address, medInstitution, approved, exist) VALUES (?,?,?,?,?,?,?)";
-    private static final String SELECT_APPROVED_MED_CENTER = "SELECT * FROM MEDCENTER WHERE approved = 1";
+    private static final String SELECT_APPROVED_MED_CENTER = "SELECT * FROM MEDCENTER WHERE approved = 1 AND exist = 1";
 
     private DAOFactory daoFactory = DAOFactory.getInstance();
     private CityDAO cityDAO = (CityDAOImpl) daoFactory.getDAO("CITY_DAO");

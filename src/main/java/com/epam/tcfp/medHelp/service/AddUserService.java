@@ -5,6 +5,7 @@ import com.epam.tcfp.medHelp.dao.impl.UserDAOImpl;
 import com.epam.tcfp.medHelp.dao.interfaces.UserDAO;
 import com.epam.tcfp.medHelp.entity.User;
 import com.epam.tcfp.medHelp.service.form.AddUserForm;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,7 +44,8 @@ public class AddUserService implements Service {
                     User user = new User();
                     user.setEmail(form.getEmail());
                     user.setRole(form.getRole());
-                    user.setPassword(form.getPassword());
+                    String md5Password = DigestUtils.md5Hex(form.getPassword());
+                    user.setPassword(md5Password);
                     user.setPhone(form.getPhone());
                     user.setFirstName(form.getFirstName());
                     user.setLastName(form.getLastName());

@@ -27,7 +27,7 @@
                 <div class="row py-4">
                     <div class="col-10">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="searchInput" onkeyup="search()" placeholder="Search User By Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type="text" class="form-control" id="searchInput" onkeyup="search()" placeholder="Search By Name" aria-label="Recipient's username" aria-describedby="button-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-info" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                             </div>

@@ -20,26 +20,26 @@
                 <form method="post" action="addDoctor">
                     <div class="form-group">
                         <label>Email address</label>
-                        <input type="email" class="form-control" name="email">
+                        <input type="email" class="form-control" name="email" required>
                         <c:if test = "${requestScope.emailExists != null}">
                             <small class="text-danger">${requestScope.emailExists}</small>
                         </c:if>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="text" class="form-control" name="password">
+                        <input type="text" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" name="firstName">
+                        <input type="text" class="form-control" name="firstName" required>
                     </div>
                     <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" name="lastName">
+                        <input type="text" class="form-control" name="lastName" required>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" name="phone">
+                        <input type="text" class="form-control" name="phone" required>
                     </div>
 
                     <div class="form-group">
@@ -62,7 +62,7 @@
 
                     <div class="form-group">
                         <label>Experience</label>
-                        <input type="number" class="form-control" min="1" max="60" name="experience">
+                        <input type="number" class="form-control" min="1" max="60" name="experience" required>
                     </div>
 
                     <div class="form-group">

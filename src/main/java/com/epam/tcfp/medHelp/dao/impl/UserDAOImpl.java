@@ -19,7 +19,7 @@ public class UserDAOImpl implements UserDAO {
     private static final String CREATE_USER = "INSERT INTO USER(EMAIL, PASSWORD, FIRSTNAME, LASTNAME, PHONE, ROLE) VALUES (?,?,?,?,?,?)";
     private static final String SELECT_ALL_USER = "SELECT * FROM USER";
     private static final String SELECT_USER_BY_EMAIL = "SELECT * FROM USER WHERE EMAIL = ?";
-    private static final String SELECT_USER_BY_EMAIL_AND_PASSWORD = "SELECT * FROM USER WHERE EMAIL = ? AND PASSWORD = ?";
+    private static final String SELECT_USER_BY_EMAIL_AND_PASSWORD = "SELECT * FROM USER WHERE EMAIL = ? AND PASSWORD = ? AND exist = 1";
     private static final String SELECT_USER_BY_ID = "SELECT * FROM USER WHERE ID = ?";
     private static final String UPDATE_USER = "UPDATE user SET email = ?,password = ?,firstName = ?,lastName = ?,phone = ?,role = ?,exist = ? WHERE id = ?";
     private static final String DELETE_USER = "DELETE FROM user WHERE id = ?";
@@ -52,7 +52,6 @@ public class UserDAOImpl implements UserDAO {
         connectionPool = ConnectionPool.getInstance();
         connection = connectionPool.takeConnection();
         try(PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USER)){
-           // preparedStatement.setString(1,USER);
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()){
                 User user = new User();

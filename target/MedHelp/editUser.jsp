@@ -21,7 +21,7 @@
                         <input type="hidden" value="${requestScope.user.id}" name="userId">
                         <div class="form-group">
                             <label>Email address</label>
-                            <input type="email" class="form-control" value="${requestScope.user.email}" name="email">
+                            <input type="email" class="form-control" value="${requestScope.user.email}" name="email" required>
                         </div>
                         <div class="form-group">
                             <label>Password</label>
@@ -29,15 +29,15 @@
                         </div>
                         <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" value="${requestScope.user.firstName}" name="firstName">
+                            <input type="text" class="form-control" value="${requestScope.user.firstName}" name="firstName" required>
                         </div>
                         <div class="form-group">
                             <label>Last Name</label>
-                            <input type="text" class="form-control" value="${requestScope.user.lastName}" name="lastName">
+                            <input type="text" class="form-control" value="${requestScope.user.lastName}" name="lastName" required>
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
-                            <input type="text" class="form-control" value="${requestScope.user.phone}" name="phone">
+                            <input type="text" class="form-control" value="${requestScope.user.phone}" name="phone" required>
                         </div>
                         <div class="form-group">
                             <label>Role</label>

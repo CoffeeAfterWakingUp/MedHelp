@@ -12,6 +12,7 @@ import com.epam.tcfp.medHelp.entity.MedCenter;
 import com.epam.tcfp.medHelp.entity.Profession;
 import com.epam.tcfp.medHelp.entity.User;
 import com.epam.tcfp.medHelp.service.form.DoctorForm;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -55,7 +56,8 @@ public class AddDoctorService implements Service {
                     MedCenter medCenter = medCenterDAO.getByID(form.getMedCenterId());
                     Profession profession = professionDAO.getById(form.getProfessionId());
                     doctor.setEmail(form.getEmail());
-                    doctor.setPassword(form.getPassword());
+                    String securedPassword = DigestUtils.md5Hex(form.getPassword());
+                    doctor.setPassword(securedPassword);
                     doctor.setFirstName(form.getFirstName());
                     doctor.setLastName(form.getLastName());
                     doctor.setPhone(form.getPhone());

@@ -20,15 +20,15 @@
                 <form method="post" action="addPharmacy">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control" name="name" required>
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <input type="text" class="form-control" name="address">
+                        <input type="text" class="form-control" name="address" required>
                     </div>
                     <div class="form-group">
                         <label>Phone</label>
-                        <input type="text" class="form-control" name="phone">
+                        <input type="text" class="form-control" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label>City</label>

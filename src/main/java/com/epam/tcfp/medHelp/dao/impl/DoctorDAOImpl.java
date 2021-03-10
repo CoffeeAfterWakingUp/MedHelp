@@ -22,7 +22,7 @@ import static com.epam.tcfp.medHelp.util.constants.ParametersName.DISAPPROVED;
 public class DoctorDAOImpl implements DoctorDAO {
     private static final String CREATE_DOCTOR = "INSERT INTO DOCTOR(EMAIL, PASSWORD, FIRSTNAME, LASTNAME, PHONE, MEDCENTER_ID, PROFESSION_ID, EXPERIENCE,approved,exist) VALUES (?,?,?,?,?,?,?,?,?,?)";
     private static final String SELECT_DOCTOR_BY_EMAIL = "SELECT * FROM DOCTOR WHERE EMAIL = ?";
-    private static final String SELECT_DOCTOR_BY_EMAIL_AND_PASSWORD = "SELECT * FROM DOCTOR WHERE EMAIL = ? AND PASSWORD = ? AND approved = 1";
+    private static final String SELECT_DOCTOR_BY_EMAIL_AND_PASSWORD = "SELECT * FROM DOCTOR WHERE EMAIL = ? AND PASSWORD = ? AND approved = 1 AND exist=1";
     private static final String SELECT_DOCTOR_BY_ID = "SELECT * FROM DOCTOR WHERE ID = ?";
     private static final String SELECT_ALL = "SELECT * FROM doctor";
     private static final String UPDATE_DOCTOR = "UPDATE doctor SET email = ?,password = ?,firstName = ?,lastName = ?,phone = ?,medCenter_id = ?,profession_id = ?,experience = ?,approved = ?,exist = ? WHERE id = ?";

@@ -25,7 +25,7 @@ public class PharmacyDAOImpl implements PharmacyDAO {
     private static final String CREATE_PHARMACY = "INSERT INTO pharmacy(name, city_id, address, phone, approved, exist) VALUES (?,?,?,?,?,?)";
     private static final String DELETE_PHARMACY = "DELETE FROM pharmacy WHERE id = ?";
     private static final String APPROVE_OR_DISAPPROVE_PHARMACY = "UPDATE pharmacy SET approved = ? WHERE id = ?";
-    private static final String SELECT_APPROVED_PHARMACY = "SELECT * FROM PHARMACY WHERE approved = 1";
+    private static final String SELECT_APPROVED_PHARMACY = "SELECT * FROM PHARMACY WHERE approved = 1 AND exist = 1";
 
     private DAOFactory daoFactory = DAOFactory.getInstance();
     private CityDAO cityDAO = (CityDAOImpl) daoFactory.getDAO("CITY_DAO");

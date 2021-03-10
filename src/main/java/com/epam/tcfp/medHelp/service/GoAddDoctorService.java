@@ -41,7 +41,7 @@ public class GoAddDoctorService implements Service {
             List<Profession> professions;
             List<MedCenter> medCenters;
             professions = professionDAO.getAll();
-            medCenters = medCenterDAO.getAll();
+            medCenters = medCenterDAO.getApprovedMedCenters();
             request.setAttribute(ALL_PROFESSIONS_SESSION, professions);
             request.setAttribute(ALL_MED_CENTERS_SESSION, medCenters);
             requestDispatcher = request.getRequestDispatcher(ADD_DOCTOR_PAGE);

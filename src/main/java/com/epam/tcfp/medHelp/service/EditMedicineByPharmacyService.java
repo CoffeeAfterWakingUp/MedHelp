@@ -45,7 +45,7 @@ public class EditMedicineByPharmacyService implements Service {
                 RequestDispatcher requestDispatcher;
                 MedicineByPharmacy medicineByPharmacy = medicineByPharmacyDAO.getById(form.getId());
                 List<Medicine> medicines = medicineDAO.getAll();
-                List<Pharmacy> pharmacies = pharmacyDAO.getAll();
+                List<Pharmacy> pharmacies = pharmacyDAO.getApprovedPharmacies();
                 request.setAttribute(MEDICINE_BY_PHARMACY,medicineByPharmacy);
                 request.setAttribute(ALL_MEDICINE,medicines);
                 request.setAttribute(ALL_PHARMACY,pharmacies);
