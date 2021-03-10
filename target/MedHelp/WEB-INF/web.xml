@@ -5,8 +5,19 @@
          version="4.0">
 
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>/index.jsp</welcome-file>
   </welcome-file-list>
+
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/pageNotFoundError.jsp</location>
+  </error-page>
+
+  <error-page>
+    <error-code>500</error-code>
+    <location>/500ErrorPage.jsp</location>
+  </error-page>
 
   <servlet>
     <servlet-name>MedHelpController</servlet-name>
