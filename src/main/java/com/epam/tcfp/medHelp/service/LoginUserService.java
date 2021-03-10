@@ -30,7 +30,6 @@ public class LoginUserService implements Service {
         RequestDispatcher requestDispatcher;
         LoginUserForm form = LoginUserForm.getInstance();
         HttpSession session = request.getSession();
-        User currentUser = (User) session.getAttribute(CURRENT_USER_SESSION);
         form.setFormParameters(request);
 
 
@@ -40,13 +39,11 @@ public class LoginUserService implements Service {
                 request.setAttribute(AUTH_NOT_VALID_ERROR, AUTH_NOT_VALID_ERROR_MSG);
                 requestDispatcher = request.getRequestDispatcher(LOGIN_PAGE);
                 requestDispatcher.forward(request, response);
-            }
-            else {
+            } else {
                 if(form.isAdmin()){
                     session.setAttribute(CURRENT_ADMIN_SESSION,userDAO.getUserByEmail(form.getEmail()));
                     response.sendRedirect(SHOW_ALL_USERS_SERVICE);
-                }
-                else{
+                } else{
                     session.setAttribute(CURRENT_USER_SESSION, userDAO.getUserByEmail(form.getEmail()));
                     response.sendRedirect(MAIN_PAGE);
                 }

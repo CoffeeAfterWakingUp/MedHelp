@@ -4,6 +4,7 @@ import com.epam.tcfp.medHelp.dao.factory.DAOFactory;
 import com.epam.tcfp.medHelp.dao.impl.UserDAOImpl;
 import com.epam.tcfp.medHelp.dao.interfaces.UserDAO;
 import com.epam.tcfp.medHelp.entity.User;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -35,7 +36,7 @@ public class LoginUserForm {
         if(userEmail != null){
             this.email = userEmail.trim();
         }
-        this.password = request.getParameter(PASSWORD);
+        this.password = DigestUtils.md5Hex(request.getParameter(PASSWORD));
         this.button = request.getParameter(LOGIN_AS_USER_BUTTON);
     }
 

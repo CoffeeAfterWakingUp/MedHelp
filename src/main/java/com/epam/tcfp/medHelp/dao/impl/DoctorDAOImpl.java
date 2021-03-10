@@ -54,25 +54,6 @@ public class DoctorDAOImpl implements DoctorDAO {
         return doctor;
     }
 
-//    @Override
-//    public void createDoctor(Doctor doctor) throws SQLException {
-//        connectionPool = ConnectionPool.getInstance();
-//        connection = connectionPool.takeConnection();
-//        try(PreparedStatement preparedStatement = connection.prepareStatement(CREATE_DOCTOR)){
-//            preparedStatement.setString(1,doctor.getEmail());
-//            preparedStatement.setString(2,doctor.getPassword());
-//            preparedStatement.setString(3,doctor.getFirstName());
-//            preparedStatement.setString(4,doctor.getLastName());
-//            preparedStatement.setString(5,doctor.getPhone());
-//            preparedStatement.setLong(6,doctor.getMedCenter().getId());
-//            preparedStatement.setLong(7,doctor.getProfession().getId());
-//            preparedStatement.setInt(8,doctor.getExperience());
-//            preparedStatement.executeUpdate();
-//        }finally {
-//            connectionPool.releaseConnection(connection);
-//        }
-//
-//    }
 
     @Override
     public void createDoctor(Doctor doctor) throws SQLException {

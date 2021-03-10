@@ -3,6 +3,7 @@ package com.epam.tcfp.medHelp.service.form;
 import com.epam.tcfp.medHelp.dao.factory.DAOFactory;
 import com.epam.tcfp.medHelp.dao.interfaces.UserDAO;
 import com.epam.tcfp.medHelp.util.resourceManager.RegexResourceManager;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -150,10 +151,6 @@ public class UserRegisterForm {
 
     public String getConfirmPassword() {
         return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 
     public String getButton() {

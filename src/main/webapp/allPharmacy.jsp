@@ -7,7 +7,6 @@
 <html>
 <head>
     <jsp:include page="head.jsp"/>
-
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -84,7 +83,6 @@
                     </div>
                     <div class="row">
                         <div class="col-6 offset-3">
-
                             <c:forEach var = "pharmacy" items="${requestScope.pharmacyByCityId}">
                                 <div class="card mb-3 shadow-sm cards">
                                     <div class="card-body">
@@ -137,21 +135,16 @@
         </div>
 
 
-
-
-
+        </div>
     </div>
+
 </div>
-
-
-
-
-
 
 
 
 <jsp:include page="footer.jsp"/>
 
+<jsp:include page="scripts.jsp"/>
 <script>
     function searchPharmacyOnKeyUp() {
         var input = document.getElementById("searchPharmacy");
@@ -171,11 +164,9 @@
 
         countOfPharmacy[0].innerText = "Найдено " + count + " аптек";
         countOfPharmacy[1].innerText = "Найдено " + count + " аптек";
-
     }
 </script>
 
-<jsp:include page="scripts.jsp"/>
 </body>
 </html>
 

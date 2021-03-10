@@ -15,6 +15,7 @@ import com.epam.tcfp.medHelp.entity.Profession;
 import com.epam.tcfp.medHelp.entity.User;
 import com.epam.tcfp.medHelp.service.form.DoctorRegisterForm;
 import com.epam.tcfp.medHelp.service.form.UserRegisterForm;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,6 +29,8 @@ import java.text.ParseException;
 import static com.epam.tcfp.medHelp.util.constants.ErrorName.*;
 import static com.epam.tcfp.medHelp.util.constants.PageName.*;
 import static com.epam.tcfp.medHelp.util.constants.FormParameterName.USER;
+import static com.epam.tcfp.medHelp.util.constants.ParametersName.EXIST;
+import static com.epam.tcfp.medHelp.util.constants.ParametersName.DISAPPROVED;
 import static com.epam.tcfp.medHelp.util.constants.RequestParameterName.*;
 
 public class RegisterUserService implements Service {
@@ -58,7 +61,8 @@ public class RegisterUserService implements Service {
                 user.setEmail(userRegisterForm.getEmail());
                 user.setFirstName(userRegisterForm.getFirstName());
                 user.setLastName(userRegisterForm.getLastName());
-                user.setPassword(userRegisterForm.getPassword());
+                String md5UserPassword = DigestUtils.md5Hex(userRegisterForm.getPassword());
+                user.setPassword(md5UserPassword);
                 user.setPhone(userRegisterForm.getPhone());
                 user.setRole(USER);
                 userDAO.createUser(user);
@@ -79,13 +83,16 @@ public class RegisterUserService implements Service {
                 doctor.setEmail(doctorRegisterForm.getEmail());
                 doctor.setFirstName(doctorRegisterForm.getFirstName());
                 doctor.setLastName(doctorRegisterForm.getLastName());
-                doctor.setPassword(doctorRegisterForm.getPassword());
+                String md5DoctorPassword = DigestUtils.md5Hex(doctorRegisterForm.getPassword());
+                doctor.setPassword(md5DoctorPassword);
                 doctor.setPhone(doctorRegisterForm.getPhone());
                 profession.setId(doctorRegisterForm.getProfessionId());
                 doctor.setProfession(profession);
                 medCenter.setId(doctorRegisterForm.getMedCenterId());
                 doctor.setMedCenter(medCenter);
                 doctor.setExperience(doctorRegisterForm.getExperience());
+                doctor.setExist(EXIST);
+                doctor.setApproved(DISAPPROVED);
                 doctorDAO.createDoctor(doctor);
                 request.setAttribute(SUCCESSFUL_REGISTRATION, SUCCESSFUL_REGISTRATION_MSG);
             } else {

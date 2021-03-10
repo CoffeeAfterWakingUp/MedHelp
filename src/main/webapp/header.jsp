@@ -33,26 +33,20 @@
             </div>
 
             <form class="form-inline my-2 my-lg-0 mr-3" title="Select language" action="changeLanguage" method="post">
-                <select class="form-control" name="language" onchange="this.form.submit()">
+                <select class="form-control" name="language" onchange="this.form.submit()" id="select">
                     <option></option>
                     <option value="ru">RU</option>
                     <option value="en">EN</option>
                 </select>
-
             </form>
 
-
-
             <c:choose>
-
                 <c:when test = "${sessionScope.currentUser != null}">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 ${sessionScope.currentUser.lastName}  ${sessionScope.currentUser.firstName}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-<%--                            <button class="dropdown-item" type="button">Profile</button>--%>
-<%--                            <div class="dropdown-divider"></div>--%>
                             <form action="logout" method="get">
                                 <button class="dropdown-item" type="submit">Log out</button>
                             </form>
@@ -66,8 +60,6 @@
                                 ${sessionScope.currentDoctor.lastName}  ${sessionScope.currentDoctor.firstName}
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-<%--                            <button class="dropdown-item" type="button">Profile</button>--%>
-<%--                            <div class="dropdown-divider"></div>--%>
                             <form action="logoutDoctor" method="get">
                                 <button class="dropdown-item" type="submit">Log out</button>
                             </form>
@@ -80,12 +72,11 @@
                     <a href="login.jsp" class="nav-link"><fmt:message key = "login"/></a>
                 </c:otherwise>
             </c:choose>
-
-
-
         </div>
     </div>
 </nav>
+
+
 
 
 

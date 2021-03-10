@@ -168,29 +168,16 @@ public class DoctorRegisterForm{
         this.password = password;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
 
     public Long getMedCenterId() {
         return medCenterId;
     }
 
-    public void setMedCenterId(Long medCenterId) {
-        this.medCenterId = medCenterId;
-    }
 
     public Long getProfessionId() {
         return professionId;
     }
 
-    public void setProfessionId(Long professionId) {
-        this.professionId = professionId;
-    }
 
     public Integer getExperience() {
         return experience;

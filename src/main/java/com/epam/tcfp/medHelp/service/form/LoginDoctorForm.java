@@ -4,6 +4,7 @@ import com.epam.tcfp.medHelp.dao.factory.DAOFactory;
 import com.epam.tcfp.medHelp.dao.impl.DoctorDAOImpl;
 import com.epam.tcfp.medHelp.dao.interfaces.DoctorDAO;
 import com.epam.tcfp.medHelp.entity.Doctor;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -35,7 +36,7 @@ public class LoginDoctorForm {
         if(doctorEmail != null){
             this.email = doctorEmail.trim();
         }
-        this.password = request.getParameter(DOCTOR_PASSWORD);
+        this.password = DigestUtils.md5Hex(request.getParameter(DOCTOR_PASSWORD));
         this.button = request.getParameter(LOGIN_AS_DOCTOR_BUTTON);
     }
 
