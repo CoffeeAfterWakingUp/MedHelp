@@ -41,9 +41,9 @@
             <form class="form-inline my-2 my-lg-0 mr-3" title="Select language" action="changeLanguage" method="post">
                 <input type="hidden" name="returnTo" value="${pageUrl}">
                 <select class="form-control" name="language" onchange="this.form.submit()" id="select">
-                    <option></option>
-                    <option value="ru">RU</option>
-                    <option value="en">EN</option>
+                   
+                    <option value="ru" <c:if test="${\"ru\" == sessionScope.currentLanguage }"><c:out value = "selected"/></c:if>>RU</option>
+                    <option value="en" <c:if test="${\"en\" == sessionScope.currentLanguage }"><c:out value = "selected"/></c:if>>EN</option>
                 </select>
             </form>
 
