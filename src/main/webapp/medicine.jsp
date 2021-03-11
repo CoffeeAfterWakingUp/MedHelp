@@ -289,7 +289,11 @@
                                     </c:when>
 
                                     <c:otherwise>
-                                        <p>Найдено ${fn:length(requestScope.pharmacyOfMedicineByCity)} аптек</p>
+                                        <p>Найдено ${fn:length(requestScope.pharmacyOfMedicineByCity)} аптек
+                                            <c:if test = "${requestScope.cityOfPharmacy != null}">
+                                                <span>(${requestScope.cityOfPharmacy.name})</span>
+                                            </c:if>
+                                        </p>
                                         <c:forEach var = "p" items="${requestScope.pharmacyOfMedicineByCity}">
                                             <div class="card mb-3 shadow-sm cards">
                                                 <div class="card-body">
@@ -332,7 +336,7 @@
                                                 <label><fmt:message key = "search.city"/> </label>
                                                 <select class="form-control" name="city_id">
                                                     <c:forEach var = "city" items="${requestScope.allCity}">
-                                                        <option value="${city.id}">${city.name}</option>
+                                                        <option value="${city.id}" <c:if test="${city.name == requestScope.cityOfPharmacy.name }"><c:out value = "selected"/></c:if>>${city.name}</option>
                                                     </c:forEach>
                                                 </select>
                                             </div>

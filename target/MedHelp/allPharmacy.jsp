@@ -119,7 +119,7 @@
                                 <label for="exampleFormControlSelect1"><fmt:message key = "search.city"/></label>
                                 <select class="form-control" id="exampleFormControlSelect1" name="city_id">
                                     <c:forEach var = "city" items="${requestScope.allCity}">
-                                        <option value="${city.id}">${city.name}</option>
+                                        <option value="${city.id}" <c:if test="${city.name == requestScope.cityOfPharmacy.name }"><c:out value = "selected"/></c:if>>${city.name}</option>
                                     </c:forEach>
 
                                 </select>

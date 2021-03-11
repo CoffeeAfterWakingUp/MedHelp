@@ -227,7 +227,7 @@
                                 <label><fmt:message key = "search.medicine.for"/></label>
                                 <select class="form-control" name="medicineForId">
                                     <c:forEach var = "medicineFor" items="${requestScope.allMedicineForGroup}">
-                                        <option value="${medicineFor.id}">${medicineFor.name}</option>
+                                        <option value="${medicineFor.id}" <c:if test="${medicineFor.name == requestScope.medicineGroupName }"><c:out value = "selected"/></c:if>>${medicineFor.name}</option>
                                     </c:forEach>
 
                                 </select>
@@ -244,7 +244,7 @@
                                 <label><fmt:message key = "search.medicine.from"/></label>
                                 <select class="form-control" name="medicineFromId">
                                     <c:forEach var = "medicineFrom" items="${requestScope.allMedicineFromGroup}">
-                                        <option value="${medicineFrom.id}">${medicineFrom.name}</option>
+                                        <option value="${medicineFrom.id}" <c:if test="${medicineFrom.name == requestScope.medicineGroupName }"><c:out value = "selected"/></c:if>>${medicineFrom.name}</option>
                                     </c:forEach>
 
                                 </select>
@@ -262,7 +262,7 @@
                                 <label><fmt:message key = "search.medicine.how"/></label>
                                 <select class="form-control" name="medicineHowId">
                                     <c:forEach var = "medicineHow" items="${requestScope.allMedicineHowGroup}">
-                                        <option value="${medicineHow.id}">${medicineHow.name}</option>
+                                        <option value="${medicineHow.id}" <c:if test="${medicineHow.name == requestScope.medicineGroupName }"><c:out value = "selected"/></c:if>>${medicineHow.name}</option>
                                     </c:forEach>
                                 </select>
                             </div>

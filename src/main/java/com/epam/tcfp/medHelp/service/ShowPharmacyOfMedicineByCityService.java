@@ -24,6 +24,7 @@ public class ShowPharmacyOfMedicineByCityService implements Service{
     private DAOFactory daoFactory = DAOFactory.getInstance();
     private MedicineByPharmacyDAO medicineByPharmacyDAO = (MedicineByPharmacyDAOImpl) daoFactory.getDAO("MEDICINE_BY_PHARMACY_DAO");
     private ServiceFactory serviceFactory = ServiceFactory.getInstance();
+    private CityDAO cityDAO = (CityDAOImpl) daoFactory.getDAO("CITY_DAO");
 
 
     @Override
@@ -31,7 +32,9 @@ public class ShowPharmacyOfMedicineByCityService implements Service{
         List<MedicineByPharmacy> medicineByPharmacies;
         ShowPharmacyOfMedicineByCityForm showPharmacyOfMedicineByCityForm = ShowPharmacyOfMedicineByCityForm.getInstance();
         showPharmacyOfMedicineByCityForm.setFormParameters(request);
+        City city = cityDAO.getCityById(showPharmacyOfMedicineByCityForm.getCityId());
         medicineByPharmacies = medicineByPharmacyDAO.getPharmacyOfMedicineByCityId(showPharmacyOfMedicineByCityForm.getCityId(), showPharmacyOfMedicineByCityForm.getMedicineId());
+        request.setAttribute(CITY_OF_PHARMACY,city);
         request.setAttribute(PHARMACY_OF_MEDICINE_BY_CITY, medicineByPharmacies);
         serviceFactory.getService(MEDICINE_SERVICE).perform(request, response);
     }
